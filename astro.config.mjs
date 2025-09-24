@@ -3,20 +3,27 @@
 import { defineConfig } from 'astro/config'
 import tailwindcss from '@tailwindcss/vite'
 
+import vercel from '@astrojs/vercel';
+
 export default defineConfig({
   // 👇 Muy importante: todas las rutas se generan con /novelist/
- // base: '/novelist/',
+  // base: '/novelist/',
 
- vite: {
-    plugins: [tailwindcss()],
-    server: {
-      strictPort: true, // si está ocupado, error
-      allowedHosts: [ 'dev.dynecore.com' ]
-    },
-  },
+  vite: {
+     plugins: [tailwindcss()],
+     server: {
+       strictPort: true, // si está ocupado, error
+       allowedHosts: [ 'dev.dynecore.com' ]
+     },
+   },
+
   server: {
       port: 2100,       // puerto fijo
       host: true
     },
-  output: 'static', // build estático para producción
+
+  // build estático para producción
+  output: 'static',
+
+  adapter: vercel()
 })
