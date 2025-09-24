@@ -1,21 +1,51 @@
 ---
+import Bookpanel from "../components/bookpanel.astro";
 import "../styles/global.css";
 ---
-
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>novelist</title>
-	</head>
-	<body>
-		<h1>novelist</h1>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>novelista</title>
 
-		<ul>
-			<li>carta</li>
-			<li>carta</li>
-		</ul>
-	</body>
+    <!-- Font Awesome, Google Fonts, Tailwind -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playball&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Ocultar todo al inicio */
+      html {
+        opacity: 0;
+      }
+      html[data-theme-ready="true"] {
+        opacity: 1;
+        transition: opacity 0.2s ease;
+      }
+    </style>
+
+    <script>
+      (function () {
+        const html = document.documentElement;
+        html.setAttribute("data-theme-ready", "true");
+      })();
+    </script>
+  </head>
+
+  <body>
+    <Bookpanel />
+
+    <!-- Importar el script de tema usando client:load -->
+    <script type="module" src="/scripts/theme.js"></script>
+
+  </body>
 </html>

@@ -1,1 +1,63 @@
 @import "tailwindcss";
+
+/* Definir las variantes para Tailwind v4 */
+@variant theme-red (&:where(.theme-red, .theme-red *));
+@variant theme-green (&:where(.theme-green, .theme-green *));
+
+/* Variables CSS para todos los temas */
+:root {
+  /* Light theme (default) */
+  --bg-header: white;
+  --text-header: #111827;
+  --bg-button: #e5e7eb;
+  --text-button: #111827;
+  --bg-primary: #f9fafb;
+  --text-primary: #111827;
+}
+
+.dark {
+  /* Dark theme */
+  --bg-header: #1f2937;
+  --text-header: #f9fafb;
+  --bg-button: #374151;
+  --text-button: #f9fafb;
+  --bg-primary: #111827;
+  --text-primary: #f9fafb;
+}
+
+.theme-red {
+  /* Red theme */
+  --bg-header: #ffebee;
+  --text-header: #b71c1c;
+  --bg-button: #ffcdd2;
+  --text-button: #b71c1c;
+  --bg-primary: #fff5f5;
+  --text-primary: #7f1d1d;
+}
+
+.theme-green {
+  /* Verde + Café Arena theme */
+  --bg-header: #a7f3d0; /* verde menta claro */
+  --text-header: #064e3b; /* verde oscuro */
+  --bg-button: #d1fae5; /* verde muy claro */
+  --text-button: #065f46; /* verde oscuro */
+  --bg-primary: #fef7ed; /* café arena claro */
+  --text-primary: #78350f; /* café oscuro */
+}
+
+/* Estilos base usando variables CSS */
+header {
+  background-color: var(--bg-header);
+  color: var(--text-header);
+}
+
+button {
+  background-color: var(--bg-button);
+  color: var(--text-button);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
